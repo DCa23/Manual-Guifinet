@@ -171,9 +171,6 @@ chmod +x /etc/network/if-pre-up.d/iptables
 Esto lo que hara sera cargar el fichero de configuracion **/etc/network/iptables** justo antes de levantar las interfaces.
 En este fichero introducimos lo siguiente:
 
-**TO-DO:** Añadir comentarios explicativos al fichero por tal de ayudar a que se entienda que hace cada linea.
-
-[Fichero iptables comentado en detalle](http://l4u-00.jinr.ru/usoft/WWW/HOWTO/PPP-HOWTO-13.html)
 ```
 *nat
 
@@ -194,11 +191,7 @@ COMMIT
 
 # Service rules
 -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
--A INPUT -s 192.168.1.0/24 -i enp0s25 -p tcp --dport 22 -j ACCEPT
--A INPUT -i enp0s25 -p udp --dport 67:68 -j ACCEPT
-#DNS request
--A INPUT -s 192.168.1.0/24 -i enp0s25 -p tcp --dport 53 -j ACCEPT
--A INPUT -s 192.168.1.0/24 -i enp0s25 -p udp --dport 53 -j ACCEPT
+-A INPUT -s 192.168.1.0/24 -i eth1 -p tcp --dport 22 -j ACCEPT
 -A INPUT -j DROP
 
 
